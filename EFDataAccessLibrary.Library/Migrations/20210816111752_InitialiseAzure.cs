@@ -2,12 +2,12 @@
 
 namespace EFDataAccessLibrary.Migrations
 {
-    public partial class InitialDbCreation : Migration
+    public partial class InitialiseAzure : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "WeatherDataSet",
+                name: "WeatherData",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -50,14 +50,14 @@ namespace EFDataAccessLibrary.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WeatherDataSet", x => x.Id);
+                    table.PrimaryKey("PK_WeatherData", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "WeatherDataSet");
+                name: "WeatherData");
         }
     }
 }

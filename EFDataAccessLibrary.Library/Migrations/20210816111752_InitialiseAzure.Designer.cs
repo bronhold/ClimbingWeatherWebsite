@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFDataAccessLibrary.Migrations
 {
     [DbContext(typeof(WeatherDataContext))]
-    [Migration("20210815044615_RemovedLocations")]
-    partial class RemovedLocations
+    [Migration("20210816111752_InitialiseAzure")]
+    partial class InitialiseAzure
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
