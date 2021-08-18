@@ -58,7 +58,7 @@ namespace ClimbingWeatherWebsite.Services
             }
 
 
-            return weatherDataMelbourne.GetRange(0, 4);
+            return weatherDataMelbourne;
         }
         
 
