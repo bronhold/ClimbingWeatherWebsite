@@ -7,8 +7,19 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Climbing locations</h1>
-    <p>This page shows the weather data from locations around Victoria Australia.</p>
+    <h1 class="display-3">Climbing locations</h1>
+    <p>This page shows the weather data from locations around Climbing Locations around Victoria, Australia.</p>
+
+    <br />
+
+    <h1 class="display-6">Website Data Flow Description</h1>
+
+    <p>
+        My  website's Backend draws the weather observation from the Bureau of Meteorology in Json format which is
+        converted and stored in a SQL database on Azure using Entity framework. The most
+        recent data is then retrieved and sent to the frontend to be displayed on the
+        webpage for the client as seen below.
+    </p>
 
     <br /> <br />
 
@@ -47,7 +58,6 @@
         <tr><td> Apparent Temperature</td>          <td>@Html.DisplayFor(m => m.weatherDataMountAlex.apparent_t)</td></tr>
         <tr><td> Air Temperature </td>              <td>@Html.DisplayFor(m => m.weatherDataMountAlex.air_temp)</td></tr>
         <tr><td> Dew point </td>                    <td>@Html.DisplayFor(m => m.weatherDataMountAlex.dewpt)</td></tr>
-        <tr><td> Air Pressure </td>                 <td>@Html.DisplayFor(m => m.weatherDataMountAlex.press)</td></tr>
         <tr><td> Rain trace </td>                   <td>@Html.DisplayFor(m => m.weatherDataMountAlex.rain_trace)</td></tr>
         <tr><td> Real humidity </td>                <td>@Html.DisplayFor(m => m.weatherDataMountAlex.rel_hum)</td></tr>
         <tr><td> Weather </td>                      <td>@Html.DisplayFor(m => m.weatherDataMountAlex.weather)</td></tr>

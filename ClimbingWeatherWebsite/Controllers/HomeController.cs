@@ -77,7 +77,7 @@ namespace EFDataAccessLibrary.Controllers
             WeatherDataViewModel weatherDataViewModel = new WeatherDataViewModel();
             List<WeatherData> weatherData = new List<WeatherData>();
 
-             var dbWeatherdata= _db.WeatherData
+             var dbWeatherdata = _db.WeatherData
             .OrderByDescending(x => x.local_date_time_full)
             .Where(x => x.name == "Moorabbin Airport")
             .First();
@@ -105,6 +105,12 @@ namespace EFDataAccessLibrary.Controllers
         /// <param name="WeatherData"></param>
         private void UpdateDb(List<WeatherData> WeatherData)
         {
+
+            try{ _db.WeatherData.FirstOrDefault(); }
+
+            catch(Exception e)
+                { }
+
             if (!_db.WeatherData.Where(x => x.name == WeatherData[0].name).Any())
             {
                 _db.AddRange(WeatherData);
