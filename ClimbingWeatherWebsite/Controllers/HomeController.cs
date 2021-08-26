@@ -38,11 +38,11 @@ namespace EFDataAccessLibrary.Controllers
         /// then gets the latest Data for the Database to display on the website
         /// </summary>
         /// <returns>WeatherDataViewModel that contains 3 weatherdata OBJs one for each location</returns>
-        public IActionResult Index()
+        public IActionResult Index(GetBomWeatherData getBomWeatherData, List<WeatherData> weatherData)
         {
   
-            GetBomWeatherData getBomWeatherData = new GetBomWeatherData();
-            List<WeatherData> weatherData = new List<WeatherData>();
+            //GetBomWeatherData getBomWeatherData = new GetBomWeatherData();
+            //List<WeatherData> weatherData = new List<WeatherData>();
 
             weatherData = getBomWeatherData.GetWeatherData(melbourneWeatherURL);
             UpdateDb(weatherData);

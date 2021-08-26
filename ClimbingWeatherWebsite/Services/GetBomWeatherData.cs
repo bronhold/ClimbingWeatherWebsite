@@ -14,6 +14,9 @@ namespace ClimbingWeatherWebsite.Services
    
     public class GetBomWeatherData
     {
+        private List<WeatherData> weatherData;
+        private WeatherDataRoot BomWeatherInfo;
+        private List<WeatherData> weatherDataList;
 
         /// <summary>
         /// This is the main method that is called to get weather data from all location:
@@ -24,7 +27,7 @@ namespace ClimbingWeatherWebsite.Services
         public List<WeatherData> GetWeatherData(string BomUrl)
         {
 
-            List<WeatherData> weatherDataMelbourne = new List<WeatherData>();
+            //List<WeatherData> weatherData = new List<WeatherData>();
 
             try
             {
@@ -34,7 +37,7 @@ namespace ClimbingWeatherWebsite.Services
                 httpWebRequest.Accept = "application/json; charset=utf-8";
                 var response = (HttpWebResponse)httpWebRequest.GetResponse();
                 var sr = new StreamReader(response.GetResponseStream());
-                weatherDataMelbourne = DeserializeJson(sr);
+                weatherData = DeserializeJson(sr);
 
             }
             catch (NotSupportedException e)
@@ -58,7 +61,7 @@ namespace ClimbingWeatherWebsite.Services
             }
 
 
-            return weatherDataMelbourne;
+            return weatherData;
         }
         
 
@@ -70,7 +73,7 @@ namespace ClimbingWeatherWebsite.Services
         
         private List<WeatherData> DeserializeJson(StreamReader sr)
         {
-            WeatherDataRoot BomWeatherInfo;
+            //WeatherDataRoot BomWeatherInfo;
 
             using (sr)
             {
@@ -78,7 +81,9 @@ namespace ClimbingWeatherWebsite.Services
                 BomWeatherInfo = JsonConvert.DeserializeObject<WeatherDataRoot>(json);
 
             }
-            List<WeatherData> weatherDataList = new List<WeatherData>(BomWeatherInfo.observations.weatherData);
+
+            //List<WeatherData> weatherDataList = new List<WeatherData>(BomWeatherInfo.observations.weatherData);
+            weatherDataList = BomWeatherInfo.observations.weatherData; 
             return weatherDataList;
         }
 
