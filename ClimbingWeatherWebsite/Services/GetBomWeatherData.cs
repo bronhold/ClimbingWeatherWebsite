@@ -14,10 +14,7 @@ namespace ClimbingWeatherWebsite.Services
    
     public class GetBomWeatherData
     {
-        private List<WeatherData> weatherData;
-        private WeatherDataRoot BomWeatherInfo;
-        private List<WeatherData> weatherDataList;
-
+         
         /// <summary>
         /// This is the main method that is called to get weather data from all location:
         /// Melbourne, Mount Alexander and Grampians
@@ -27,7 +24,7 @@ namespace ClimbingWeatherWebsite.Services
         public List<WeatherData> GetWeatherData(string BomUrl)
         {
 
-            //List<WeatherData> weatherData = new List<WeatherData>();
+            List<WeatherData> weatherData = new List<WeatherData>();
 
             try
             {
@@ -60,11 +57,9 @@ namespace ClimbingWeatherWebsite.Services
                 Console.WriteLine(e);
             }
 
-
             return weatherData;
         }
         
-
         /// <summary>
         /// Converts a stream reader that contains a json weather obj to WeatherDataRoot C# obj and returns the list of weatherdata obj that is inside the WeatherDataRoot
         /// </summary>
@@ -73,7 +68,7 @@ namespace ClimbingWeatherWebsite.Services
         
         private List<WeatherData> DeserializeJson(StreamReader sr)
         {
-            //WeatherDataRoot BomWeatherInfo;
+            WeatherDataRoot BomWeatherInfo;
 
             using (sr)
             {
@@ -82,7 +77,7 @@ namespace ClimbingWeatherWebsite.Services
 
             }
 
-            //List<WeatherData> weatherDataList = new List<WeatherData>(BomWeatherInfo.observations.weatherData);
+            List<WeatherData> weatherDataList = new List<WeatherData>(BomWeatherInfo.observations.weatherData);
             weatherDataList = BomWeatherInfo.observations.weatherData; 
             return weatherDataList;
         }

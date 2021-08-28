@@ -1,3 +1,4 @@
+using ClimbingWeatherWebsite.Services;
 using EFDataAccessLibrary.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +26,10 @@ namespace ClimbingWeatherWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-     
+
+            services.AddTransient <GetBomWeatherData>();
+            services.AddTransient <DataBaseAccess>();
+
             services.AddDbContext<WeatherDataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
