@@ -14,6 +14,7 @@ using System.Text.Json;
 using EFDataAccessLibrary.Models;
 using EFDataAccessLibrary.ViewModels;
 
+
 namespace EFDataAccessLibrary.Controllers
 {
     public class HomeController : Controller
@@ -23,13 +24,14 @@ namespace EFDataAccessLibrary.Controllers
         private readonly string grampiansWeatherURL = @"http://www.bom.gov.au/fwo/IDV60801/IDV60801.94836.json";
 
         private readonly ILogger<HomeController> _logger;
-        private readonly WeatherDataContext _db;
+        private readonly GetBomWeatherData _getBomWeatherData;
+        private readonly DataBaseAccess _dataBaseAccess;
 
-        public HomeController(ILogger<HomeController> logger,  WeatherDataContext db)
+        public HomeController(ILogger<HomeController> logger, GetBomWeatherData getBomWeatherData, DataBaseAccess dataBaseAccess )
         {
             _logger = logger;
-            
-            _db = db;
+            _getBomWeatherData = getBomWeatherData;
+            _dataBaseAccess = dataBaseAccess;
         }
 
 
@@ -41,19 +43,18 @@ namespace EFDataAccessLibrary.Controllers
         public IActionResult Index()
         {
   
-            GetBomWeatherData getBomWeatherData = new GetBomWeatherData();
             List<WeatherData> weatherData = new List<WeatherData>();
 
-            weatherData = getBomWeatherData.GetWeatherData(melbourneWeatherURL);
-            UpdateDb(weatherData);
+            weatherData = _getBomWeatherData.GetWeatherData(melbourneWeatherURL);
+            _dataBaseAccess.UpdateDb(weatherData);
 
-            weatherData = getBomWeatherData.GetWeatherData(mtAlexWeatherURL);
-            UpdateDb(weatherData);
+            weatherData = _getBomWeatherData.GetWeatherData(mtAlexWeatherURL);
+            _dataBaseAccess.UpdateDb(weatherData);
 
-            weatherData = getBomWeatherData.GetWeatherData(grampiansWeatherURL);
-            UpdateDb(weatherData);
+            weatherData = _getBomWeatherData.GetWeatherData(grampiansWeatherURL);
+            _dataBaseAccess.UpdateDb(weatherData);
 
-            return View( GetWeatherDataFromDb() ); 
+            return View(_dataBaseAccess.GetWeatherDataFromDb() ); 
         }
 
         public IActionResult Privacy()
@@ -68,81 +69,6 @@ namespace EFDataAccessLibrary.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        /// <summary>
-        /// Retrieves the most recent weatherdata OBJ for each location to be displayed on the website 
-        /// </summary>
-        /// <returns>weatherDataViewModel that contains a weatherdata OBJ for each location</returns>
-        private WeatherDataViewModel GetWeatherDataFromDb ()
-        {
-            WeatherDataViewModel weatherDataViewModel = new WeatherDataViewModel();
-            List<WeatherData> weatherData = new List<WeatherData>();
-
-             var dbWeatherdata = _db.WeatherData
-            .OrderByDescending(x => x.local_date_time_full)
-            .Where(x => x.name == "Moorabbin Airport")
-            .First();
-            weatherDataViewModel.weatherDataMelbourne = dbWeatherdata;
-
-            dbWeatherdata = _db.WeatherData
-            .OrderByDescending(x => x.local_date_time_full)
-            .Where(x => x.name == "Redesdale")
-            .First();
-            weatherDataViewModel.weatherDataMountAlex = dbWeatherdata;
-
-            dbWeatherdata = _db.WeatherData
-            .OrderByDescending(x => x.local_date_time_full)
-            .Where(x => x.name == "Stawell")
-            .First();
-            weatherDataViewModel.weatherDataGrampians = dbWeatherdata;
-
-            return weatherDataViewModel;
-        }
-
-        /// <summary>
-        /// Updates the WeatherDatabase with the weatherdata OBJs from the BOM website
-        /// It checks if the entries from the BOM website are already in the database and add them if they are missing.
-        /// </summary>
-        /// <param name="WeatherData"></param>
-        private void UpdateDb(List<WeatherData> WeatherData)
-        {
-
-            try{ _db.WeatherData.FirstOrDefault(); }
-
-            catch(Exception e)
-                { }
-
-            if (!_db.WeatherData.Where(x => x.name == WeatherData[0].name).Any())
-            {
-                _db.AddRange(WeatherData);
-                _db.SaveChanges();
-                return;
-            }
-
-            var latestWeatherData = _db.WeatherData
-            .OrderByDescending(x => x.local_date_time_full)
-            .Where(x => x.name == WeatherData[0].name)
-            .Select(y => y.local_date_time_full)
-            .First();
-
-            int indexoflatestData = WeatherData.FindIndex(item => item.local_date_time_full == latestWeatherData);
-         
-
-            if (indexoflatestData == 0) { return; }   // DataBase is upto date
-            
-            if (indexoflatestData > 0)                // Part of the weather data is new starting at indexoflatestData            
-            {
-                _db.AddRange(WeatherData.GetRange(0, indexoflatestData));
-                _db.SaveChanges();
-                return;
-            }
-           
-            if (indexoflatestData == -1)              // All WeatherData is new Data
-            {
-                _db.AddRange(WeatherData);
-                _db.SaveChanges();
-                return;
-            }
-        }
         
     }
 }
