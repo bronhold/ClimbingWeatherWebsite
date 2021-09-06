@@ -5,14 +5,8 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
-using EFDataAccessLibrary.DataAccess;
-using System.Text.Json;
 using EFDataAccessLibrary.Models;
-using EFDataAccessLibrary.ViewModels;
+
 
 
 namespace EFDataAccessLibrary.Controllers
@@ -62,6 +56,9 @@ namespace EFDataAccessLibrary.Controllers
 
             return View();
         }
+
+        public IActionResult WhoAmI()
+        { return View(); }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

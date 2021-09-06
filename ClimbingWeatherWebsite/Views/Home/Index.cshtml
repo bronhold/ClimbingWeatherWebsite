@@ -1,50 +1,16 @@
-﻿@{
+﻿<!DOCTYPE html>
+@{
     ViewData["Title"] = "Home Page";
-    @using EFDataAccessLibrary.Models
-    @using EFDataAccessLibrary.ViewModels
     @model EFDataAccessLibrary.ViewModels.WeatherDataViewModel
-
-}
-
-
-    <style>
-    
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-
-        }
-        .header {
-            padding: 60px;
-            text-align: center;
-            background: #1abc9c;
-            color: white;
-            font-size: 4rem;
-        }
-
-        header h1 {
-            
-        }
-        
-        .p1 {
-            padding: 30px;
-            padding-block-start: 15px;
-            text-align: center;
-            background: #1abc9c;
-            color: white;
-            font-size: 16px;
-        }
-    </style>
+ }
 
 
-    
+    <div class="Mainheader">
+        <h>Climbing locations</h>
 
-    <div class="header">
-        <h1 style="font-size: 4.5rem;">Climbing locations</h1>
-
-        <div class="p1">
-            <br/>
-            <p1 style="font-size: 1.4rem;">This page shows the weather data from locations around Climbing Locations around Victoria, Australia.</p1style="font-size:>
+        <div class="headingP">
+            <br />
+            <p1>This page shows the weather data from locations around Climbing Locations around Victoria, Australia.</p1style="font-size:>
 
         </div>
     </div>
@@ -52,84 +18,81 @@
 
 
 
-        <div class="text-center container">
+    <div class="text-center container">
 
-            <br /><br />
+        <br /><br />
 
-            <h2 class="display-6">Website Data Flow Description</h2>
-
-            <style>
-                p {
-                    border: 2px solid powderblue;
-                    padding: 20px;
-                }
-            </style>
-
-            <p>
-                My website's Backend draws the weather observation from the Bureau of Meteorology in Json format which is
-                converted and stored in a SQL database on Azure using Entity framework. The most
-                recent data is then retrieved and sent to the frontend to be displayed on the
-                webpage for the client as seen below.
-            </p>
-
-            <br /> <br />
+        <h2 class="display-6">Website Data Flow Description</h2>
 
 
-            <h1 class="display-7"> Weather Data East Oakleigh</h1>
-            <table class="table table-striped table-bordered table-hover">
 
-                <tr> <td> Closest Weather Station </td>     <td>@Html.DisplayFor(m => m.weatherDataMelbourne.name)      &nbsp;            </td> </tr>
-                <tr> <td> Last update </td>                 <td>@Html.DisplayFor(m => m.weatherDataMelbourne.local_date_time)       </td> </tr>
-                <tr> <td> Cloud </td>                       <td>@Html.DisplayFor(m => m.weatherDataMelbourne.cloud)                 </td> </tr>
-                <tr> <td> Apparent Temperature</td>         <td>@Html.DisplayFor(m => m.weatherDataMelbourne.apparent_t)    &#176C  </td> </tr>
-                <tr> <td> Air Temperature </td>             <td>@Html.DisplayFor(m => m.weatherDataMelbourne.air_temp)      &#176C  </td> </tr>
-                <tr> <td> Dew point </td>                   <td>@Html.DisplayFor(m => m.weatherDataMelbourne.dewpt)         &#176C  </td> </tr>
-                <tr> <td> Air Pressure </td>                <td>@Html.DisplayFor(m => m.weatherDataMelbourne.press)         hPa     </td> </tr>
-                <tr> <td> Rain trace </td>                  <td>@Html.DisplayFor(m => m.weatherDataMelbourne.rain_trace)            </td> </tr>
-                <tr> <td> Real humidity </td>               <td>@Html.DisplayFor(m => m.weatherDataMelbourne.rel_hum)       %       </td> </tr>
-                <tr> <td> Weather </td>                     <td>@Html.DisplayFor(m => m.weatherDataMelbourne.weather)               </td> </tr>
-                <tr> <td> Wind Direction </td>              <td>@Html.DisplayFor(m => m.weatherDataMelbourne.wind_dir)              </td> </tr>
-                <tr> <td> Wind speed </td>                  <td>@Html.DisplayFor(m => m.weatherDataMelbourne.wind_spd_kmh)  Km/h    </td> </tr>
-            </table>
+        <p>
+            My website's Backend draws the weather observation from the Bureau of Meteorology in Json format which is
+            converted and stored in a SQL database on Azure using Entity framework. The most
+            recent data is then retrieved and sent to the frontend to be displayed on the
+            webpage for the client as seen below.
+        </p>
+
+        <br /> <br />
 
 
-            <br /> <br />
+        <h1 class="display-7"> Weather Data East Oakleigh</h1>
+        <table class="table table-striped table-bordered table-hover">
+
+            <tr> <td> Closest Weather Station </td>     <td>@Html.DisplayFor(m => m.weatherDataMelbourne.name)      &nbsp;            </td> </tr>
+            <tr> <td> Last update </td>                 <td>@Html.DisplayFor(m => m.weatherDataMelbourne.local_date_time)       </td> </tr>
+            <tr> <td> Cloud </td>                       <td>@Html.DisplayFor(m => m.weatherDataMelbourne.cloud)                 </td> </tr>
+            <tr> <td> Apparent Temperature</td>         <td>@Html.DisplayFor(m => m.weatherDataMelbourne.apparent_t)    &#176C  </td> </tr>
+            <tr> <td> Air Temperature </td>             <td>@Html.DisplayFor(m => m.weatherDataMelbourne.air_temp)      &#176C  </td> </tr>
+            <tr> <td> Dew point </td>                   <td>@Html.DisplayFor(m => m.weatherDataMelbourne.dewpt)         &#176C  </td> </tr>
+            <tr> <td> Air Pressure </td>                <td>@Html.DisplayFor(m => m.weatherDataMelbourne.press)         hPa     </td> </tr>
+            <tr> <td> Rain trace </td>                  <td>@Html.DisplayFor(m => m.weatherDataMelbourne.rain_trace)            </td> </tr>
+            <tr> <td> Real humidity </td>               <td>@Html.DisplayFor(m => m.weatherDataMelbourne.rel_hum)       %       </td> </tr>
+            <tr> <td> Weather </td>                     <td>@Html.DisplayFor(m => m.weatherDataMelbourne.weather)               </td> </tr>
+            <tr> <td> Wind Direction </td>              <td>@Html.DisplayFor(m => m.weatherDataMelbourne.wind_dir)              </td> </tr>
+            <tr> <td> Wind speed </td>                  <td>@Html.DisplayFor(m => m.weatherDataMelbourne.wind_spd_kmh)  Km/h    </td> </tr>
+        </table>
 
 
-            <h1  class="display-7"> Weather Data Mount Alexander</h1>
-            <table class="table table-striped table-bordered table-hover">
-
-                <tr> <td> Closest Weather Station </td>     <td> &emsp; &nbsp; @Html.DisplayFor(m => m.weatherDataMountAlex.name)           &emsp;    &nbsp;   </td> </tr>
-                <tr> <td> Last update </td>                 <td>@Html.DisplayFor(m => m.weatherDataMountAlex.local_date_time)       </td> </tr>
-                <tr> <td> Cloud </td>                       <td>@Html.DisplayFor(m => m.weatherDataMountAlex.cloud)                 </td> </tr>
-                <tr> <td> Apparent Temperature</td>         <td>@Html.DisplayFor(m => m.weatherDataMountAlex.apparent_t)    &#176C  </td> </tr>
-                <tr> <td> Air Temperature </td>             <td>@Html.DisplayFor(m => m.weatherDataMountAlex.air_temp)      &#176C  </td> </tr>
-                <tr> <td> Dew point </td>                   <td>@Html.DisplayFor(m => m.weatherDataMountAlex.dewpt)         &#176C  </td> </tr>
-                <tr> <td> Rain trace </td>                  <td>@Html.DisplayFor(m => m.weatherDataMountAlex.rain_trace)            </td> </tr>
-                <tr> <td> Real humidity </td>               <td>@Html.DisplayFor(m => m.weatherDataMountAlex.rel_hum)       %       </td> </tr>
-                <tr> <td> Weather </td>                     <td>@Html.DisplayFor(m => m.weatherDataMountAlex.weather)               </td> </tr>
-                <tr> <td> Wind Direction </td>              <td>@Html.DisplayFor(m => m.weatherDataMountAlex.wind_dir)              </td> </tr>
-                <tr> <td> Wind speed </td>                  <td>@Html.DisplayFor(m => m.weatherDataMountAlex.wind_spd_kmh)  Km/h    </td> </tr>
-            </table>
+        <br /> <br />
 
 
-            <br /> <br />
+        <h1 class="display-7"> Weather Data Mount Alexander</h1>
+        <table class="table table-striped table-bordered table-hover">
+
+            <tr> <td> Closest Weather Station </td>     <td> &emsp; &nbsp; @Html.DisplayFor(m => m.weatherDataMountAlex.name)           &emsp;    &nbsp;   </td> </tr>
+            <tr> <td> Last update </td>                 <td>@Html.DisplayFor(m => m.weatherDataMountAlex.local_date_time)       </td> </tr>
+            <tr> <td> Cloud </td>                       <td>@Html.DisplayFor(m => m.weatherDataMountAlex.cloud)                 </td> </tr>
+            <tr> <td> Apparent Temperature</td>         <td>@Html.DisplayFor(m => m.weatherDataMountAlex.apparent_t)    &#176C  </td> </tr>
+            <tr> <td> Air Temperature </td>             <td>@Html.DisplayFor(m => m.weatherDataMountAlex.air_temp)      &#176C  </td> </tr>
+            <tr> <td> Dew point </td>                   <td>@Html.DisplayFor(m => m.weatherDataMountAlex.dewpt)         &#176C  </td> </tr>
+            <tr> <td> Rain trace </td>                  <td>@Html.DisplayFor(m => m.weatherDataMountAlex.rain_trace)            </td> </tr>
+            <tr> <td> Real humidity </td>               <td>@Html.DisplayFor(m => m.weatherDataMountAlex.rel_hum)       %       </td> </tr>
+            <tr> <td> Weather </td>                     <td>@Html.DisplayFor(m => m.weatherDataMountAlex.weather)               </td> </tr>
+            <tr> <td> Wind Direction </td>              <td>@Html.DisplayFor(m => m.weatherDataMountAlex.wind_dir)              </td> </tr>
+            <tr> <td> Wind speed </td>                  <td>@Html.DisplayFor(m => m.weatherDataMountAlex.wind_spd_kmh)  Km/h    </td> </tr>
+        </table>
 
 
-            <h1 class="display-7"> Weather Data Grampians</h1>
-            <table class="table table-striped table-bordered table-hover">
-                <tr> <td> Closest Weather Station </td>     <td> &emsp; &emsp;  @Html.DisplayFor(m => m.weatherDataGrampians.name)          &emsp;  &emsp;      </td> </tr>
-                <tr> <td> Last update </td>                 <td>@Html.DisplayFor(m => m.weatherDataGrampians.local_date_time)       </td> </tr>
-                <tr> <td> Cloud </td>                       <td>@Html.DisplayFor(m => m.weatherDataGrampians.cloud)                 </td> </tr>
-                <tr> <td> Apparent Temperature</td>         <td>@Html.DisplayFor(m => m.weatherDataGrampians.apparent_t)    &#176C  </td> </tr>
-                <tr> <td> Air Temperature </td>             <td>@Html.DisplayFor(m => m.weatherDataGrampians.air_temp)      &#176C  </td> </tr>
-                <tr> <td> Dew point </td>                   <td>@Html.DisplayFor(m => m.weatherDataGrampians.dewpt)         &#176C  </td> </tr>
-                <tr> <td> Air Pressure </td>                <td>@Html.DisplayFor(m => m.weatherDataGrampians.press)         hPa     </td> </tr>
-                <tr> <td> Rain trace </td>                  <td>@Html.DisplayFor(m => m.weatherDataGrampians.rain_trace)            </td> </tr>
-                <tr> <td> Real humidity </td>               <td>@Html.DisplayFor(m => m.weatherDataGrampians.rel_hum)       %       </td> </tr>
-                <tr> <td> Weather </td>                     <td>@Html.DisplayFor(m => m.weatherDataGrampians.weather)               </td> </tr>
-                <tr> <td> Wind Direction </td>              <td>@Html.DisplayFor(m => m.weatherDataGrampians.wind_dir)              </td> </tr>
-                <tr> <td> Wind speed </td>                  <td>@Html.DisplayFor(m => m.weatherDataGrampians.wind_spd_kmh)  Km/h    </td> </tr>
-            </table>
-        </div>
+        <br /> <br />
+
+
+        <h1 class="display-7"> Weather Data Grampians</h1>
+        <table class="table table-striped table-bordered table-hover">
+            <tr> <td> Closest Weather Station </td>     <td> &emsp; &emsp;  @Html.DisplayFor(m => m.weatherDataGrampians.name)          &emsp;  &emsp;      </td> </tr>
+            <tr> <td> Last update </td>                 <td>@Html.DisplayFor(m => m.weatherDataGrampians.local_date_time)       </td> </tr>
+            <tr> <td> Cloud </td>                       <td>@Html.DisplayFor(m => m.weatherDataGrampians.cloud)                 </td> </tr>
+            <tr> <td> Apparent Temperature</td>         <td>@Html.DisplayFor(m => m.weatherDataGrampians.apparent_t)    &#176C  </td> </tr>
+            <tr> <td> Air Temperature </td>             <td>@Html.DisplayFor(m => m.weatherDataGrampians.air_temp)      &#176C  </td> </tr>
+            <tr> <td> Dew point </td>                   <td>@Html.DisplayFor(m => m.weatherDataGrampians.dewpt)         &#176C  </td> </tr>
+            <tr> <td> Air Pressure </td>                <td>@Html.DisplayFor(m => m.weatherDataGrampians.press)         hPa     </td> </tr>
+            <tr> <td> Rain trace </td>                  <td>@Html.DisplayFor(m => m.weatherDataGrampians.rain_trace)            </td> </tr>
+            <tr> <td> Real humidity </td>               <td>@Html.DisplayFor(m => m.weatherDataGrampians.rel_hum)       %       </td> </tr>
+            <tr> <td> Weather </td>                     <td>@Html.DisplayFor(m => m.weatherDataGrampians.weather)               </td> </tr>
+            <tr> <td> Wind Direction </td>              <td>@Html.DisplayFor(m => m.weatherDataGrampians.wind_dir)              </td> </tr>
+            <tr> <td> Wind speed </td>                  <td>@Html.DisplayFor(m => m.weatherDataGrampians.wind_spd_kmh)  Km/h    </td> </tr>
+        </table>
+        <br /> <br />
+
+    </div>
     
