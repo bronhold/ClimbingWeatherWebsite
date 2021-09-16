@@ -2,8 +2,14 @@
 @{
     ViewData["Title"] = "Home Page";
     @model EFDataAccessLibrary.ViewModels.WeatherDataViewModel
- }
+    @section Scripts
+    {
+        <script> var rellax = new Rellax('.rellax'); </script>
+    }
+}
 
+
+<div class="parallax">
     <div class="Mainheader">
         <h>Climbing Locations</h>
 
@@ -14,11 +20,16 @@
         </div>
     </div>
 
+    <div class="parallax"> </div>
+
+
+
+
     <div class="text-center container">
 
         <br /><br />
 
-        <h2 class="display-6">Website data flow description</h2>
+        <h2 class="display-6 text-white">Website data flow description</h2>
 
         <p>
             The website's backend draws weather data from the Australian Bureau of Meteorology in JSON format.
@@ -28,7 +39,7 @@
         </p>
 
 
-        <h1 class="display-7 tablemargin "> East Oakleigh</h1>
+        <h1 class="display-7 tablemargin text-white"> East Oakleigh</h1>
         <table class="table table-striped table-bordered table-hover weatherDataTable shadow">
 
             <tr> <td> Closest weather station </td>     <td>@Html.DisplayFor(m => m.weatherDataMelbourne.name)      &nbsp;            </td> </tr>
@@ -45,7 +56,7 @@
         </table>
 
 
-        <h1 class="display-7"> Mount Alexander</h1>
+        <h1 class="display-7 text-white"> Mount Alexander</h1>
         <table class="table table-striped table-bordered table-hover weatherDataTable shadow">
 
             <tr> <td> Closest weather station </td>     <td> &emsp; &nbsp; @Html.DisplayFor(m => m.weatherDataMountAlex.name)           &emsp;    &nbsp;   </td> </tr>
@@ -61,7 +72,7 @@
         </table>
 
 
-        <h1 class="display-7"> The Grampians</h1>
+        <h1 class="display-7 text-white"> The Grampians</h1>
         <table class="table table-striped table-bordered table-hover weatherDataTable shadow">
             <tr> <td> Closest weather station </td>     <td> &emsp; &emsp;  @Html.DisplayFor(m => m.weatherDataGrampians.name)          &emsp;  &emsp;      </td> </tr>
             <tr> <td> Last updated </td>                <td>@Html.DisplayFor(m => m.weatherDataGrampians.local_date_time)       </td> </tr>
@@ -76,7 +87,7 @@
             <tr> <td> Air pressure </td>                <td>@Html.DisplayFor(m => m.weatherDataGrampians.press)         hPa     </td> </tr>
         </table>
 
-        <p1>
+        <p1 class="text-white">
             Source code for the website can be found in my
         </p1>
 
@@ -85,4 +96,4 @@
         </a>
         <br /><br /> <br /><br />
     </div>
-    
+</div>
