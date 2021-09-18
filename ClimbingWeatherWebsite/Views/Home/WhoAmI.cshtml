@@ -1,10 +1,22 @@
 ﻿<!DOCTYPE html>
-@{ 
+@{
     ViewData["Title"] = "About Me";
+    @section Scripts
+    {
+        <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+        <script>
+             var rellax = new Rellax('.rellax');
+        </script>
+    }
 }
 
 
-<div class="parallax2">
+<div>
+    <img src="/Images/DarkBackground.jpg" class="rellax rellax-image2" data-rellax-speed="-7">
+</div>
+
+<container>
+
     <div class="headerWhoAmI">
         <h>@ViewData["Title"]</h>
 
@@ -15,57 +27,57 @@
         </div>
     </div>
 
-    <div class="text-left container">
-        <div class="imagestyle ">
-            <img src="/Images/BronProfessional.jpeg" alt="image not found" />
+            <div class="text-left container">
+                <div class="imagestyle ">
+                    <img class="img-format" src="/Images/BronProfessional.jpeg" alt="image not found" />
 
-            <br /><br />
-            <p1>
-                Name: <b>Bron Oliver-Holdgate </b> &nbsp;  &nbsp;    Nationality: <b>Australian</b>
-            </p1>
+                    <br /><br />
+                          <p1>
+                              Name: <b>Bron Oliver-Holdgate </b> <br>   Nationality: <b>Australian</b>
+                          </p1>
 
-            <br /><br />
-            <p1>
-                I am very excited at the prospect of a challenging position designing web applications.
-                Since completing a Bachelor of Electrical Engineering (Honors) at Royal Melbourne Institute of Technology
-                I have been interested in programming as a career and have been studying in my own time to make this a reality.
-                Web application development is becoming increasingly important as more companies want to improve their processes and the visibility of their data.
-                I would love the opportunity to use my professional skills to design web applications for such companies.
+                    <br /><br />
+                    <p1>
+                        I am very excited at the prospect of a challenging position designing web applications.
+                        Since completing a Bachelor of Electrical Engineering (Honors) at Royal Melbourne Institute of Technology
+                        I have been interested in programming as a career and have been studying in my own time to make this a reality.
+                        Web application development is becoming increasingly important as more companies want to improve their processes and the visibility of their data.
+                        I would love the opportunity to use my professional skills to design web applications for such companies.
 
-            </p1>
-            <br /><br />
-        </div>
+                    </p1>
+                    <br /><br />
+                </div>
 
-        <div class="dividingBorder text-white">
-            <h4>Engineering skills</h4>
+                <div class="dividingBorder text-white">
+                    <h4>Engineering skills</h4>
 
-            <ul>
-                <li>Experience with ASP.net, MVC, Entity Framework, Linq, SQL server and CSS</li>
-                <li>Writing and debugging code in C#, C and Python </li>
-                <li>Troubleshooting complex hardware and software issues</li>
-                <li>Managing many different concurrent projects</li>
-                <li>Easierly adapt to new technology and systems </li>
-                <li>Work constructively within a team environment</li>
-                <li>Thrive on learning new skills and developing expertise</li>
-            </ul>
-            <br />
+                    <ul>
+                        <li>Experience with ASP.net, MVC, Entity Framework, Linq, SQL server and CSS</li>
+                        <li>Writing and debugging code in C#, C and Python </li>
+                        <li>Troubleshooting complex hardware and software issues</li>
+                        <li>Managing many different concurrent projects</li>
+                        <li>Easierly adapt to new technology and systems </li>
+                        <li>Work constructively within a team environment</li>
+                        <li>Thrive on learning new skills and developing expertise</li>
+                    </ul>
+                    <br />
 
-            <h4>Personal interests </h4>
+                    <h4>Personal interests </h4>
 
-            <ul>
-                <li>Rock climbing and bouldering</li>
-                <li>Embedded systems </li>
-                <li>Hiking</li>
+                    <ul>
+                        <li>Rock climbing and bouldering</li>
+                        <li>Embedded systems </li>
+                        <li>Hiking</li>
 
-            </ul>
-            <br /><br />
+                    </ul>
+                    <br /><br />
 
-            <p1>
-                Contact me at: <b>bronholdgate@hotmail.com</b>
-            </p1>
+                    <p1>
+                        Contact me at: <b>bronholdgate@hotmail.com</b>
+                    </p1>
 
-            <br /><br /> <br /><br />
+                    <br /><br /> <br /><br />
 
-        </div>
-    </div>
-</div>
+                </div>
+            </div>
+        </container>

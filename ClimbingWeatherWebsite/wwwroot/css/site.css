@@ -37,31 +37,6 @@ html {
   }
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-.bg-body {
-
-}
-
-.mb-3{
-    margin-bottom:1rem;
-        --bs-bg-opacity: 1;
-    margin-color: rgba(var(--bs-body-rgb),var(--bs-bg-opacity)) !important;
-}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -82,13 +57,28 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+/* General styles
+-------------------------------------------*/
 
+p1 {
+    color: white;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Index page styles
+-------------------------------------------*/
 .Mainheader {
-    padding: 120px 40px 60px 60px;
+    padding: 100px 60px 40px 60px;
     text-align: center;
     background: #1abc9c;
     color: white;
     font-size: 4.5rem;
+    
+    
 }
 
 .headingP {
@@ -99,19 +89,32 @@ body {
     font-size: 1.4rem;
 }
 
+.weatherDataTable {
+    margin-bottom: 70px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+.tablemargin {
+    margin-top: 60px;
+}
+
 p {
     border: 2px solid powderblue;
     padding: 20px;
     border-radius: 5px;
     background: powderblue;
 }
-
-p1{
-    color:white;
+.rellax-image {
+    height: 86%;
+    position: absolute;
+    z-index: -1;
 }
 
+/* Who Am I page styles
+-------------------------------------------*/
 .headerWhoAmI {
-    padding: 120px 40px 60px 60px;
+    padding: 100px 60px 40px 60px;
     text-align: center;
     background: #4b89bd;
     color: white;
@@ -126,16 +129,9 @@ p1{
     color: white;
     font-size: 1.4rem;
 }
-.weatherDataTable {
-    margin-bottom: 70px;
-    background-color: #f2f2f2;
-    border-radius: 4px;
-}
-.tablemargin {
-    margin-top: 60px;
-}
 
-img {
+
+.img-format {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
@@ -154,26 +150,10 @@ img {
     border-top: 2px solid #67a5d8;
 }
 
-.parallax {
-    /* The image used */
-    background-image: url("/Images/MountainsBackground.jpg");
-  
-    /* Create the parallax scrolling effect */
-
-    overflow: hidden;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.parallax2 {
-    /* The image used */
-    background-image: url("/Images/DarkBackground.jpg");
-    /* Create the parallax scrolling effect */
-
-    overflow: hidden;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.rellax-image2 {
+    width: 100%;
+    height:91%;
+    position: absolute;
+    z-index: -1;
+    overflow-y:hidden;
 }
